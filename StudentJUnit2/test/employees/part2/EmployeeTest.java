@@ -25,8 +25,8 @@ public class EmployeeTest {
         DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
         Date startDate = format.parse("January 1, 2010");
 
-        address = new Address("37 EastPark", "Crawley", "RH10 6AN", "UK");
-        employee = new Employee("Andy Mortimer", startDate, "AB121212A", address);
+        address = new Address("37 Test Street", "Crawley", "RH10 0PH", "UK");
+        employee = new Employee("MR Test", startDate, "AB121212A", address);
     }
 
     @Test
@@ -46,7 +46,7 @@ public class EmployeeTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void anEmployeeHasSecurityNumberIsValid() {
-        new Employee("Andy Mortimer", startDate, "AB121212", address);
+        new Employee("A Test", startDate, "AB121212", address);
     }
 
     @Test
