@@ -14,12 +14,8 @@ import static com.ninja_squad.dbsetup.Operations.insertInto;
 import static com.ninja_squad.dbsetup.Operations.sequenceOf;
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by amortimer on 05/09/2016.
- */
 public class EmployeeTest {
     private DataSource dataSource = DatasourceFactory.getMySQLDataSource();
-    private DataSource ds = null;
     private Connection con = null;
     private PreparedStatement pstmt = null;
     private ResultSet rs = null;
@@ -37,7 +33,7 @@ public class EmployeeTest {
         DbSetup dbSetup = new DbSetup(new DataSourceDestination(dataSource), operation);
         dbSetup.launch();
 
-        ds = DatasourceFactory.getMySQLDataSource();
+        DataSource ds = DatasourceFactory.getMySQLDataSource();
         con = ds.getConnection();
     }
 
@@ -57,9 +53,15 @@ public class EmployeeTest {
             e.printStackTrace();
         }finally{
             try {
-                if(rs != null) rs.close();
-                if(pstmt != null) pstmt.close();
-                if(con != null) con.close();
+                if(rs != null) {
+                    rs.close();
+                }
+                if(pstmt != null) {
+                    pstmt.close();
+                }
+                if(con != null) {
+                    con.close();
+                }
             } catch (SQLException e) {
                 e.printStackTrace();
             }

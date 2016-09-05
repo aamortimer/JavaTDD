@@ -76,12 +76,14 @@ public class Date {
 	public boolean equals(Object other) { 
 		
 		// If the two object references point to the same object, then the values must be equal!
-		if (other == this) 
-			return true; 
+		if (other == this) {
+			return true;
+		}
 		
 		// If the other object isn't a Date, then the values must be different! 
-		if (!(other instanceof Date)) 
-			return false;	
+		if (!(other instanceof Date)) {
+			return false;
+		}
 
 		// Compare the day, month, and year values.
 		Date otherDate = (Date)other;
